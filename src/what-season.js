@@ -10,7 +10,6 @@
  * 
  */
 function getSeason(date) {
-    console.log(date);
     if (!date) {
         return `Unable to determine the time of year!`;
     }
