@@ -34,9 +34,10 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
-  },
+    const result = this.newChain.join('~~');
+    this.newChain = [];
+    return result;
+  }
 };
 
 module.exports = {
