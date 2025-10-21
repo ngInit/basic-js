@@ -7,6 +7,7 @@ const { NotImplementedError } = require('../lib');
  */
 const chainMaker = {
   newChain: [],
+  errorMessage: `You can't remove incorrect link!`,
   getLength() {
     return this.newChain.length;
   },
@@ -14,9 +15,19 @@ const chainMaker = {
     this.newChain.push(`( ${value} )`);
     return this;
   },
-  removeLink(/* position */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  removeLink(position) {
+    try {
+      if (typeof position === 'number' && position > 0 && position <= this.newChain.length) {
+        this.newChain.splice(position - 1, 1)
+      } else {
+        this.newChain = [];
+        throw this.errorMessage;
+      }
+    } catch (error) {
+      throw new Error(error);
+    } finally {
+    }
+    return this
   },
   reverseChain() {
     // Remove line below and write your code here
