@@ -11,9 +11,20 @@ const { NotImplementedError } = require('../lib');
  *
  */
 
-function encodeLine(/* str */) {
-  // Remove line below and write your code here
-  throw new NotImplementedError('Not implemented');
+function encodeLine(str) {
+  let result = '';
+  let compressNumber = 1;
+  for (let indexStr in str) {
+    let index = Number(indexStr);
+    if (str[index + 1] === str[index]) {
+      compressNumber += 1;
+    } else {
+      compressNumber = compressNumber !== 1 ? compressNumber : '';
+      result += `${compressNumber}` + str[index];
+      compressNumber = 1;
+    }
+  }
+  return result;
 }
 
 module.exports = {
