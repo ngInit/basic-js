@@ -15,9 +15,18 @@ const { NotImplementedError } = require('../lib');
  * the output should be ["file", "file(1)", "image", "file(1)(1)", "file(2)"]
  *
  */
-function renameFiles(/* names */) {
-  // Remove line below and write your code here
-  throw new NotImplementedError('Not implemented');
+function renameFiles(names) {
+  const arrayOfFiles = [...names];
+  for (let index = 0; index < arrayOfFiles.length; index += 1) {
+    let counter = 1;
+    let file = arrayOfFiles[index];
+    while (names.indexOf(file) !== index) {
+      file = `${arrayOfFiles[index]}` + `(${counter})`;
+      names[index] = file;
+      counter += 1;
+    }
+  }
+  return names;
 }
 
 module.exports = {
