@@ -10,9 +10,9 @@ const chainMaker = {
   getLength() {
     return this.newChain.length;
   },
-  addLink(/* value */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  addLink(value) {
+    this.newChain.push(`( ${value} )`);
+    return this;
   },
   removeLink(/* position */) {
     // Remove line below and write your code here
