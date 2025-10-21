@@ -30,8 +30,8 @@ const chainMaker = {
     return this
   },
   reverseChain() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+    this.newChain.reverse();
+    return this;
   },
   finishChain() {
     // Remove line below and write your code here
